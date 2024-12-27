@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import exercises from '@/ui/data/exercises.json';
 import ExerciseListItem from '@/src/components/ExerciseListItem';
 
-const Home = () => {
+const ExerciseList = () => {
 	return (
 		<View style={styles.container}>
 			<FlatList
@@ -20,4 +20,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default ExerciseList;

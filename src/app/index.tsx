@@ -1,6 +1,6 @@
 import React from 'react';
-import Home from '@/src/screens/Home';
+import ExerciseList from '@/src/screens/ExerciseList';
 
-const App = () => <Home />;
+const App = () => <ExerciseList />;
 
 export default App;
