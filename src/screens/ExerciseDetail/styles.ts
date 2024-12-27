@@ -26,4 +26,10 @@ export const styles = StyleSheet.create({
 		fontSize: 16,
 		lineHeight: 22,
 	},
+	seeMore: {
+		textAlign: 'center',
+		padding: 10,
+		fontWeight: 'bold',
+		color: colors.black,
+	},
 });
