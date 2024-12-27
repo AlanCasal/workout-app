@@ -13,6 +13,7 @@ const Home = () => {
 				renderItem={({ item }) => <ExerciseListItem exercise={item} />}
 				contentContainerStyle={styles.flatList}
 				keyExtractor={(item, index) => `${item.name}-${index}`}
+				showsVerticalScrollIndicator={false}
 			/>
 			<StatusBar style="dark" />
 		</View>

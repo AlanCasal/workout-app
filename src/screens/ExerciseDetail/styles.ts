@@ -2,22 +2,14 @@ import { colors } from '@/src/utils/colors';
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-	exerciseContainer: {
-		backgroundColor: colors.white,
+	container: {
 		padding: 10,
-		borderRadius: 10,
-		gap: 5,
-		marginHorizontal: 2,
-
-		shadowColor: colors.black,
-		shadowOffset: {
-			width: 0,
-			height: 1,
-		},
-		shadowOpacity: 0.2,
-		shadowRadius: 1.41,
-
-		elevation: 2,
+		gap: 10,
+	},
+	panel: {
+		backgroundColor: colors.white,
+		borderRadius: 5,
+		padding: 10,
 	},
 	title: {
 		fontSize: 20,
@@ -28,5 +20,10 @@ export const styles = StyleSheet.create({
 	},
 	subtitleText: {
 		textTransform: 'capitalize',
+	},
+	instructions: {
+		marginTop: 10,
+		fontSize: 16,
+		lineHeight: 22,
 	},
 });
