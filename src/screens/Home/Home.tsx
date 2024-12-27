@@ -1,20 +1,20 @@
-import { View, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 import React from 'react';
 import { styles } from './styles';
+import { StatusBar } from 'expo-status-bar';
 import exercises from '@/ui/data/exercises.json';
-import { Exercise } from '@/src/utils/types';
+import ExerciseListItem from '@/src/components/ExerciseListItem';
 
 const Home = () => {
-	const exercise: Exercise = exercises[0];
-
 	return (
 		<View style={styles.container}>
-			<View style={styles.exerciseContainer}>
-				<Text style={styles.title}>{exercise.name}</Text>
-				<Text style={styles.subtitle}>
-					Muscle: {exercise.muscle} | Equipment: {exercise.equipment}
-				</Text>
-			</View>
+			<FlatList
+				data={exercises}
+				renderItem={({ item }) => <ExerciseListItem exercise={item} />}
+				contentContainerStyle={styles.flatList}
+				keyExtractor={(item, index) => `${item.name}-${index}`}
+			/>
+			<StatusBar style="dark" />
 		</View>
 	);
 };

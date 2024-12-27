@@ -7,20 +7,8 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.gainsboro,
 		justifyContent: 'center',
 		padding: 10,
+	},
+	flatList: {
 		gap: 5,
-	},
-	exerciseContainer: {
-		backgroundColor: colors.white,
-		padding: 10,
-		borderRadius: 10,
-	},
-	title: {
-		fontSize: 20,
-		fontWeight: 500,
-	},
-	subtitle: {
-		fontSize: 16,
-		fontWeight: 400,
-		color: colors.dimGray,
 	},
 });
