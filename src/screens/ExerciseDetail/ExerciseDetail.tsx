@@ -8,6 +8,7 @@ import NewSetInput from '@/src/components/NewSetInput';
 import SetsList from '@/src/components/SetsList';
 import { ExerciseDetailItem } from '@/src/types/exercise';
 import useAuthContext from '@/src/context/AuthContext/useAuthContext';
+import ProgressGraph from '@/src/components/ProgressGraph';
 
 // TODO: move to separate component
 const Header = ({ exercise }: { exercise: ExerciseDetailItem }) => {
@@ -39,6 +40,8 @@ const Header = ({ exercise }: { exercise: ExerciseDetailItem }) => {
 					{isExpanded ? 'See less' : 'See more'}
 				</Text>
 			</View>
+
+			<ProgressGraph />
 
 			<NewSetInput exerciseName={exercise.name} />
 		</View>
