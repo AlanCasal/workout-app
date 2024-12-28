@@ -1,10 +1,10 @@
 import { Text, Pressable } from 'react-native';
 import React from 'react';
 import { styles } from './styles';
-import { Exercise } from '@/src/utils/types';
 import { Link } from 'expo-router';
+import { ExerciseListItem as ExerciseListItemType } from '@/src/types';
 
-const ExerciseListItem = ({ exercise }: { exercise: Exercise }) => {
+const ExerciseListItem = ({ exercise }: { exercise: ExerciseListItemType }) => {
 	return (
 		<Link href={`/${exercise.name}`} asChild>
 			<Pressable style={styles.exerciseContainer}>

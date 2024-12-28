@@ -1,16 +1,21 @@
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { Exercise } from '@/src/utils/types';
-import exercises from '@/ui/data/exercises.json';
+import { colors } from '@/src/utils/colors';
+import { useExerciseByName } from '@/src/hooks/queries/useExerciseByName';
 
 const ExerciseDetail = () => {
+	const { name } = useLocalSearchParams<{ name: string }>();
+	const { data, isLoading, error } = useExerciseByName(name);
+
 	const [isExpanded, setIsExpanded] = useState(false);
-	const { name } = useLocalSearchParams<{ name: Exercise['name'] }>();
 
-	const exercise = exercises.find(exerciseItem => exerciseItem.name === name);
+	// TODO: use my custom loading spinner
+	if (isLoading) return <ActivityIndicator size="large" color={colors.black} />;
+	if (error) return <Text>Error: {error.message}</Text>;
 
+	const exercise = data?.exercises[0];
 	if (!exercise) return <Text>Exercise not found</Text>;
 
 	return (
