@@ -24,6 +24,7 @@ const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 			user_id: 'foxOne',
 		});
 
+		// TODO: should only clear inputs if mutation is successful
 		setReps('');
 		setWeight('');
 	};
