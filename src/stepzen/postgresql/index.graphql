@@ -27,6 +27,13 @@ type Query {
 			table: "sets"
 			configuration: "postgresql_config"
 		)
+	setsByUser_idAndExercise(user_id: String!, exercise: String!): [Sets]
+		@dbquery(
+			type: "postgresql"
+			schema: "public"
+			table: "sets"
+			configuration: "postgresql_config"
+		)
 	setsList: [Sets]
 		@dbquery(
 			type: "postgresql"

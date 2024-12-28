@@ -20,3 +20,13 @@ export const QUERY_EXERCISE_BY_NAME = gql`
 		}
 	}
 `;
+
+export const QUERY_SETS = gql`
+	query sets($user_id: String!, $exercise: String!) {
+		setsByUser_idAndExercise(user_id: $user_id, exercise: $exercise) {
+			exercise
+			reps
+			weight
+		}
+	}
+`;

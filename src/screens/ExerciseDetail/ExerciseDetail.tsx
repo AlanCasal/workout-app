@@ -55,7 +55,10 @@ const ExerciseDetail = () => {
 		<View style={styles.container}>
 			<Stack.Screen options={{ title: exercise.name }} />
 
-			<SetsList ListHeaderComponent={<Header exercise={exercise} />} />
+			<SetsList
+				exerciseName={exercise.name}
+				ListHeaderComponent={<Header exercise={exercise} />}
+			/>
 		</View>
 	);
 };

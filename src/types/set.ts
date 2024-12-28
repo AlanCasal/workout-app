@@ -4,7 +4,3 @@ export interface Set {
 	weight: number;
 	user_id: string;
 }
-
-export interface InsertSetResponse {
-	user_id: string;
-}
