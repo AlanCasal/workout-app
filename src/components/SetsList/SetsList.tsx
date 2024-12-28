@@ -3,6 +3,7 @@ import React from 'react';
 import { styles } from './styles';
 import { colors } from '@/src/utils/colors';
 import { useSets } from '@/src/hooks/queries/useSets';
+import useAuthContext from '@/src/context/AuthContext/useAuthContext';
 
 const SetsList = ({
 	exerciseName,
@@ -11,7 +12,8 @@ const SetsList = ({
 	exerciseName: string;
 	ListHeaderComponent: React.ReactNode;
 }) => {
-	const { data, isLoading, error } = useSets('foxOne', exerciseName);
+	const { username } = useAuthContext();
+	const { data, isLoading, error } = useSets(username, exerciseName);
 
 	if (isLoading) return <ActivityIndicator size="small" color={colors.black} />;
 	if (error) return <Text>Error: {error.message}</Text>;

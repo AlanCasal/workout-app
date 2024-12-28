@@ -2,12 +2,14 @@ import { View, TextInput, Button, Text, Alert } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { styles } from './styles';
 import { useInsertSet } from '@/src/hooks/mutations/useInsertSet';
+import useAuthContext from '@/src/context/AuthContext/useAuthContext';
 
 const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 	const [reps, setReps] = useState('');
 	const [weight, setWeight] = useState('');
 	const [showSuccess, setShowSuccess] = useState(false);
 
+	const { username } = useAuthContext();
 	const { mutate, isPending, isError, isSuccess } = useInsertSet();
 
 	const handleAddSet = () => {
@@ -21,7 +23,7 @@ const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 			exercise: exerciseName,
 			reps: parseInt(reps),
 			weight: parseFloat(weight),
-			user_id: 'foxOne',
+			user_id: username,
 		});
 
 		// TODO: should only clear inputs if mutation is successful
@@ -73,3 +75,6 @@ const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 };
 
 export default NewSetInput;
+
+// TODO: add offline mode with react-query
+// TODO: add session logic from todoApp

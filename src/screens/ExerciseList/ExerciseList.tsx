@@ -5,9 +5,14 @@ import { StatusBar } from 'expo-status-bar';
 import ExerciseListItem from '@/src/components/ExerciseListItem';
 import { useExercises } from '@/src/hooks/queries/useExercises';
 import { colors } from '@/src/utils/colors';
+import { Redirect } from 'expo-router';
+import useAuthContext from '@/src/context/AuthContext/useAuthContext';
 
 const ExerciseList = () => {
 	const { data, isLoading, error } = useExercises();
+	const { username } = useAuthContext();
+
+	if (!username) return <Redirect href="/auth" />;
 
 	if (isLoading) return <ActivityIndicator size="large" color={colors.black} />;
 

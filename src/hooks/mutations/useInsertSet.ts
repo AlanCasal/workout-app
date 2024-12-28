@@ -8,8 +8,9 @@ export const useInsertSet = () => {
 	const queryClient = useQueryClient();
 
 	return useMutation({
-		mutationFn: (newSet: Set) =>
-			client.request<InsertSetResponse>(MUTATION_INSERT_SET, newSet),
+		mutationFn: (newSet: Set) => {
+			return client.request<InsertSetResponse>(MUTATION_INSERT_SET, newSet);
+		},
 		onSuccess: (_, newSet) => {
 			queryClient.invalidateQueries({
 				queryKey: ['sets', newSet.exercise],

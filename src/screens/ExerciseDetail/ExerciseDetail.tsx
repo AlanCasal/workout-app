@@ -1,16 +1,21 @@
-import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { Redirect, Stack, useLocalSearchParams } from 'expo-router';
 import { colors } from '@/src/utils/colors';
 import { useExerciseByName } from '@/src/hooks/queries/useExerciseByName';
 import NewSetInput from '@/src/components/NewSetInput';
 import SetsList from '@/src/components/SetsList';
 import { ExerciseDetailItem } from '@/src/types/exercise';
+import useAuthContext from '@/src/context/AuthContext/useAuthContext';
 
 // TODO: move to separate component
 const Header = ({ exercise }: { exercise: ExerciseDetailItem }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
+
+	const { username } = useAuthContext();
+
+	if (!username) return <Redirect href="/auth" />;
 
 	return (
 		<View style={styles.headerContainer}>
