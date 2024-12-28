@@ -8,7 +8,7 @@ type RootEntry {
 }
 
 type Query {
-	myQuery(muscle: String, name: String): [RootEntry]
+	exercises(muscle: String, name: String): [RootEntry]
 		@rest(
 			configuration: "api-ninjas"
 			endpoint: "$api_url"

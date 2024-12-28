@@ -39,4 +39,4 @@ yarn-error.*
 # misc
 workout-app.code-workspace
 ui/
-src/api/config.yaml
+src/stepzen/config.yaml
