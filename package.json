@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.11",
+    "@uidotdev/usehooks": "^2.4.1",
     "expo": "~52.0.23",
     "expo-constants": "~17.0.3",
     "expo-linking": "~7.0.3",

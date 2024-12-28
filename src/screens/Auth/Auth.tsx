@@ -13,6 +13,7 @@ const Auth = () => {
 		if (!usernameInput) return Alert.alert('Username is required');
 
 		// TODO: add some basic validation
+		// TODO: add users table and link it to the sets table
 		onLogin(usernameInput);
 	};
 
@@ -34,6 +35,7 @@ const Auth = () => {
 				autoCapitalize="none"
 				autoComplete="off"
 				textContentType="none"
+				autoCorrect={false}
 			/>
 			<Button title="Sign In" onPress={handleSignIn} />
 		</View>
