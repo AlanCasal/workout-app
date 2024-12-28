@@ -6,4 +6,6 @@ export const colors = {
 	gainsboro: '#DCDCDC',
 	white: '#FFFFFF',
 	ghostWhite: '#F8F8FF',
+	error: '#FF0000',
+	success: '#22c55e',
 };

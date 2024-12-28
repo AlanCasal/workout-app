@@ -6,8 +6,18 @@ export const styles = StyleSheet.create({
 		backgroundColor: colors.white,
 		padding: 10,
 		borderRadius: 5,
+		gap: 10,
+	},
+	row: {
 		flexDirection: 'row',
 		gap: 10,
+	},
+	error: {
+		color: colors.error,
+	},
+	success: {
+		color: colors.success,
+		marginTop: 5,
 	},
 	input: {
 		borderWidth: StyleSheet.hairlineWidth,

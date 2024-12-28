@@ -3,7 +3,7 @@ import { QUERY_EXERCISE_BY_NAME } from '@/src/graphql/queries';
 import client from '@/src/graphql/client';
 import { ExerciseDetailResponse } from '@/src/types';
 
-export function useExerciseByName(name: string) {
+export const useExerciseByName = (name: string) => {
 	return useQuery({
 		queryKey: ['exercise', name],
 		queryFn: () =>
@@ -11,4 +11,4 @@ export function useExerciseByName(name: string) {
 				name,
 			}),
 	});
-}
+};

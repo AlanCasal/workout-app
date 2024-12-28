@@ -1,0 +1,82 @@
+type Sets {
+	created_at: DateTime
+	exercise: String
+	id: Int!
+	reps: Int
+	user_id: String
+	weight: Float
+}
+
+"""
+The following queries are just a set of examples of how to access your schema.
+Feel free to modify them or aggregate more.
+"""
+type Query {
+	" Queries for type 'Sets' "
+	setsByUser_id(user_id: String!): [Sets]
+		@dbquery(
+			type: "postgresql"
+			schema: "public"
+			table: "sets"
+			configuration: "postgresql_config"
+		)
+	setsByUser_idAndWeight(user_id: String!, weight: Float!): [Sets]
+		@dbquery(
+			type: "postgresql"
+			schema: "public"
+			table: "sets"
+			configuration: "postgresql_config"
+		)
+	setsList: [Sets]
+		@dbquery(
+			type: "postgresql"
+			schema: "public"
+			table: "sets"
+			configuration: "postgresql_config"
+		)
+	setsPaginatedList(first: Int, after: Int): [Sets]
+		@dbquery(
+			type: "postgresql"
+			schema: "public"
+			query: """
+			SELECT "created_at", "exercise", "id", "reps", "user_id", "weight" FROM "sets" LIMIT $1 OFFSET $2
+			"""
+			configuration: "postgresql_config"
+		)
+}
+
+"""
+The following mutations are just a set of examples of how to access your schema.
+Feel free to modify them or aggregate more.
+"""
+type Mutation {
+	" Mutations for type 'Sets' "
+	deleteSets(
+		weight: Float!
+		user_id: String!
+		id: Int!
+		reps: Int!
+		created_at: DateTime!
+		exercise: String!
+	): Sets
+		@dbquery(
+			type: "postgresql"
+			schema: "public"
+			table: "sets"
+			dml: DELETE
+			configuration: "postgresql_config"
+		)
+	insertSets(
+		exercise: String!
+		reps: Int!
+		weight: Float!
+		user_id: String!
+	): Sets
+		@dbquery(
+			type: "postgresql"
+			schema: "public"
+			table: "sets"
+			dml: INSERT
+			configuration: "postgresql_config"
+		)
+}

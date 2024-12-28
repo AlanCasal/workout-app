@@ -5,6 +5,7 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import { colors } from '@/src/utils/colors';
 import { useExerciseByName } from '@/src/hooks/queries/useExerciseByName';
 import NewSetInput from '@/src/components/NewSetInput';
+import SetsList from '@/src/components/SetsList';
 
 const ExerciseDetail = () => {
 	const { name } = useLocalSearchParams<{ name: string }>();
@@ -46,7 +47,9 @@ const ExerciseDetail = () => {
 				</Text>
 			</View>
 
-			<NewSetInput />
+			<NewSetInput exerciseName={exercise.name} />
+
+			<SetsList />
 		</ScrollView>
 	);
 };
