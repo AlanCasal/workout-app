@@ -4,13 +4,10 @@ import { styles } from './styles';
 import { Redirect, Stack, useLocalSearchParams } from 'expo-router';
 import { colors } from '@/src/utils/colors';
 import { useExerciseByName } from '@/src/hooks/queries/useExerciseByName';
-import NewSetInput from '@/src/components/NewSetInput';
-import SetsList from '@/src/components/SetsList';
+import Sets from '@/src/components/Sets';
 import { ExerciseDetailItem } from '@/src/types/exercise';
 import useAuthContext from '@/src/context/AuthContext/useAuthContext';
-import ProgressGraph from '@/src/components/ProgressGraph';
 
-// TODO: move to separate component
 const Header = ({ exercise }: { exercise: ExerciseDetailItem }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
@@ -19,7 +16,7 @@ const Header = ({ exercise }: { exercise: ExerciseDetailItem }) => {
 	if (!username) return <Redirect href="/auth" />;
 
 	return (
-		<View style={styles.headerContainer}>
+		<View>
 			<View style={styles.panel}>
 				<Text style={styles.title}>{exercise.name}</Text>
 
@@ -40,10 +37,6 @@ const Header = ({ exercise }: { exercise: ExerciseDetailItem }) => {
 					{isExpanded ? 'See less' : 'See more'}
 				</Text>
 			</View>
-
-			<ProgressGraph />
-
-			<NewSetInput exerciseName={exercise.name} />
 		</View>
 	);
 };
@@ -52,7 +45,6 @@ const ExerciseDetail = () => {
 	const { name } = useLocalSearchParams<{ name: string }>();
 	const { data, isLoading, error } = useExerciseByName(name);
 
-	// TODO: use my custom loading spinner
 	if (isLoading) return <ActivityIndicator size="large" color={colors.black} />;
 	if (error) return <Text>Error: {error.message}</Text>;
 
@@ -63,10 +55,9 @@ const ExerciseDetail = () => {
 		<View style={styles.container}>
 			<Stack.Screen options={{ title: exercise.name }} />
 
-			<SetsList
-				exerciseName={exercise.name}
-				ListHeaderComponent={<Header exercise={exercise} />}
-			/>
+			<Header exercise={exercise} />
+
+			<Sets exerciseName={exercise.name} />
 		</View>
 	);
 };

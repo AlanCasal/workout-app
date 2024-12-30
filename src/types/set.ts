@@ -3,4 +3,5 @@ export interface Set {
 	reps: number;
 	weight: number;
 	user_id: string;
+	created_at: string;
 }

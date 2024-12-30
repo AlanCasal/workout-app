@@ -12,8 +12,6 @@ const Auth = () => {
 	const handleSignIn = () => {
 		if (!usernameInput) return Alert.alert('Username is required');
 
-		// TODO: add some basic validation
-		// TODO: add users table and link it to the sets table
 		onLogin(usernameInput);
 	};
 
@@ -37,7 +35,11 @@ const Auth = () => {
 				textContentType="none"
 				autoCorrect={false}
 			/>
-			<Button title="Sign In" onPress={handleSignIn} />
+			<Button
+				title="Sign In"
+				onPress={handleSignIn}
+				disabled={!usernameInput}
+			/>
 		</View>
 	);
 };

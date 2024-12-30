@@ -27,6 +27,7 @@ export const QUERY_SETS = gql`
 			exercise
 			reps
 			weight
+			created_at
 		}
 	}
 `;

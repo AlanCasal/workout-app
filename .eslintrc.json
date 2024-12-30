@@ -89,11 +89,5 @@
 		"@typescript-eslint/quotes": ["error", "single"],
 		"indent": ["error", "tab"]
 	},
-	"ignorePatterns": [
-		"toDos.js",
-		"metro.config.js",
-		"babel.config.js",
-		"challenge.js",
-		"todo-app.code-workspace"
-	]
+	"ignorePatterns": ["todos.js", "metro.config.js", "babel.config.js"]
 }

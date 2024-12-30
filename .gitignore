@@ -40,3 +40,4 @@ yarn-error.*
 workout-app.code-workspace
 ui/
 src/stepzen/config.yaml
+todos.js

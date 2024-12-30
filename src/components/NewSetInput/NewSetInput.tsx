@@ -26,7 +26,6 @@ const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 			user_id: username,
 		});
 
-		// TODO: should only clear inputs if mutation is successful
 		setReps('');
 		setWeight('');
 	};
@@ -57,7 +56,6 @@ const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 					keyboardType="numeric"
 				/>
 
-				{/* TODO: add spinner within button if isPending */}
 				<Button
 					title={isPending ? 'Adding...' : 'Add'}
 					onPress={handleAddSet}
@@ -65,7 +63,6 @@ const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 				/>
 			</View>
 
-			{/* TODO: add vector icons for error and success */}
 			{isError && <Text style={styles.error}>Failed to add set</Text>}
 			{showSuccess && (
 				<Text style={styles.success}>Set added successfully!</Text>
@@ -75,6 +72,3 @@ const NewSetInput = ({ exerciseName }: { exerciseName: string }) => {
 };
 
 export default NewSetInput;
-
-// TODO: add offline mode with react-query
-// TODO: add session logic from todoApp

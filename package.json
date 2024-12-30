@@ -12,6 +12,7 @@
     "@shopify/react-native-skia": "1.5.0",
     "@tanstack/react-query": "^5.62.11",
     "@uidotdev/usehooks": "^2.4.1",
+    "date-fns": "^4.1.0",
     "expo": "~52.0.23",
     "expo-constants": "~17.0.3",
     "expo-linking": "~7.0.3",

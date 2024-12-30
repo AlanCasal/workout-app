@@ -2,7 +2,7 @@ import { FlatList, ActivityIndicator, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
 import { StatusBar } from 'expo-status-bar';
-import ExerciseListItem from '@/src/components/ExerciseListItem';
+import ExerciseListItem from '@/src/screens/ExerciseList/ExerciseListItem';
 import { useExercises } from '@/src/hooks/queries/useExercises';
 import { colors } from '@/src/utils/colors';
 import { Redirect, Stack } from 'expo-router';
